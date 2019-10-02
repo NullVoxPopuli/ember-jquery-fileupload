@@ -10,7 +10,7 @@ export default Ember.Component.extend({
 
   elementObserver: function() {
     if(!Ember.isNone(this.get('preview'))) {
-      this.$('.jq-canvas-cont').append(Ember.$(this.get('preview')));
+      this.element.querySelectorAll('.jq-canvas-cont').forEach(el => el.addEventListener(Ember.$(this.get('preview'))));
     }
   }.observes('preview')
 

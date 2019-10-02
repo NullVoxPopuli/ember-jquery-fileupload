@@ -104,9 +104,9 @@ var jqFileUpload = Ember.Component.extend({
 
   disabledObserver: function() {
     if(this.get('disabled')) {
-     this.$().fileupload('disable');
+     this.element.addEventListener('disable');
    } else {
-      this.$().fileupload('enable');
+      this.element.addEventListener('enable');
    }
   }.observes('disabled'),
 
@@ -130,7 +130,7 @@ var jqFileUpload = Ember.Component.extend({
   },
 
   _destroyFileUpload: function() {
-    this.$().fileupload('destroy');
+    this.element.addEventListener('destroy');
   }.on("willDestroyElement")
 
 });
